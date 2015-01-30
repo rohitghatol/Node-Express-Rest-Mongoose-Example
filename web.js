@@ -3,7 +3,7 @@
  */
 var db = require('./config/db')();
 
-var app = require('./config/express')(db);
+var app = require('./config/express')();
 
 //Configure express routes
 require('./config/routes.js')(app);
