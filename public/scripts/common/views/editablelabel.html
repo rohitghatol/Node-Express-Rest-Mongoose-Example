@@ -1,0 +1,9 @@
+<span>
+    <input ng-show="editMode" type="text" ng-model="value"
+            ng-keyup="keyup()">
+
+    <span ng-show="!editMode" ng-bind="value"
+        ng-dblclick="enterEditMode()"
+            ></span>
+
+</span>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+        .completed{
+            text-decoration: line-through;
+        }
+
+        .active{
+            background: grey;
+        }
+    </style>
+
+</head>
+<body ng-app="myApp">
+<h1>Todo App1</h1>
+
+<div ng-controller="MainCtrl">
+
+
+
+    <div>
+        <input type="text" ng-model="newTodo.todoText" ng-keypress="keypress()">
+
+        <input type="hidden" ng-model="newTodo.completed" value="false">
+        <button ng-click="add()">Add</button>
+    </div>
+    <div>
+        <div ng-repeat="item in todos | TodoFilter:criteria">
+
+            <input type="checkbox" ng-model="item.completed">
+            <editable-label value="item.todoText"></editable-label>
+            <!--<span ng-bind="item.text" ng-class="{ 'completed': item.completed}"></span>-->
+            <button ng-click="delete(item)">x</button>
+
+        </div>
+    </div>
+    <hr>
+    <a href="#"
+       ng-click="criteria='All'"
+       ng-class="{ 'active': criteria==='All'}">All</a> |
+    <a href="#"
+       ng-click="criteria='Active'"
+       ng-class="{ 'active': criteria==='Active'}">Active</a> |
+    <a href="#"
+       ng-click="criteria='Completed'"
+       ng-class="{ 'active': criteria==='Completed'}">Completed</a>
+    <hr>
+    <button ng-click="clearCompleted()">Clear Completed Items</button>
+</div>
+
+
+<script src="lib/angular.min.js"></script>
+<script src="scripts/common/common.module.js"></script>
+<script src="scripts/common/directives/editablelabel.js"></script>
+<script src="scripts/todo/todo.module.js"></script>
+<script src="scripts/todo/controllers/todo.controller.js"></script>
+<script src="scripts/todo/services/todo.service.js"></script>
+<script src="scripts/todo/filters/todo.filter.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
+
