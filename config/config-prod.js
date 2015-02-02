@@ -3,5 +3,5 @@
  */
 
 module.exports = {
-  db: 'mongodb://KpDBwyfCatGu:GpPkZYHQxren@mongosoup-cont002.mongosoup.de:31680/cc_KpDBwyfCatGu'
+  db: process.env.MONGOSOUP_URL
 }
