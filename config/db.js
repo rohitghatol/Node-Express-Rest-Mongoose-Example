@@ -1,8 +1,8 @@
 /**
  * Created by rohitghatol on 1/29/15.
  */
-
-var config = require('./config'),
+var env = process.env.ENV || 'dev';
+var config = require('./config-'+env),
   mongoose = require('mongoose');
 
 module.exports = function(){
