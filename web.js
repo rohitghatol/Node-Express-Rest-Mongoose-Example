@@ -1,6 +1,7 @@
 /**
  * Created by rohitghatol on 1/28/15.
  */
+var PORT = (process.env.PORT || 3000);
 var db = require('./config/db')();
 
 var app = require('./config/express')();
@@ -9,5 +10,6 @@ var app = require('./config/express')();
 require('./config/routes.js')(app);
 
 
-app.listen('3000');
-console.log('listening on port 3000');
+app.listen(PORT,function(){
+   console.log('listening on port '+PORT);
+});
