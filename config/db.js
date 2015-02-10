@@ -1,7 +1,8 @@
 /**
  * Created by rohitghatol on 1/29/15.
  */
-var env = process.env.ENV || 'dev';
+var env = process.env.ENVIRONMENT || 'dev';
+console.log(env);
 var config = require('./config-'+env),
   mongoose = require('mongoose');
 
